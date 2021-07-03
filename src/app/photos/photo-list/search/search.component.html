@@ -1,0 +1,5 @@
+<div class="text-center mb-3 mt-3">
+    <i aria-hidden="true" class="fa fa-search mr-2"></i>
+    <input class="rounded" type="search" placeholder="Search..." autofocus (input)="debounce.next($event.target.value)"
+        [value]="value" />
+</div>

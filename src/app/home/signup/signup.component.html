@@ -1,0 +1,37 @@
+<div class="container pt-5">
+    <ol-vmessage [message]="error" *ngIf="error"></ol-vmessage>
+    <form [formGroup]="signUpForm" class="form">
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input #emailFormInput type="email" id="email" formControlName="email" class="form-control"
+                placeholder="Email" />
+            <ol-form-error [input]="signUpForm.get('email')" inputName="Email">
+            </ol-form-error>
+        </div>
+        <div class="form-group">
+            <label for="userName">User name</label>
+            <input #loginFormInput id="userName" formControlName="userName" class="form-control"
+                placeholder="User name" />
+            <ol-form-error [input]="signUpForm.get('userName')" inputName="User name">
+            </ol-form-error>
+        </div>
+        <div class="form-group">
+            <label for="fullName">Full name</label>
+            <input #loginFormInput id="fullName" formControlName="fullName" class="form-control"
+                placeholder="Full name" />
+            <ol-form-error [input]="signUpForm.get('fullName')" inputName="Full name">
+            </ol-form-error>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" formControlName="password" class="form-control"
+                placeholder="Password" />
+            <ol-form-error [input]="signUpForm.get('password')" inputName="Password">
+            </ol-form-error>
+        </div>
+        <button [disabled]="signUpForm.invalid" type="submit" (click)="signUp()" class="btn btn-primary btn-block">
+            Sign Up
+        </button>
+        <a [routerLink]="['']" class="btn btn-link btn-block">Already a member? Sign In</a>
+    </form>
+</div>

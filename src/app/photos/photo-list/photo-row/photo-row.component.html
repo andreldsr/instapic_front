@@ -1,0 +1,20 @@
+<div class="text-center text-muted" *ngIf="!photos.length">
+    Sorry, no photos
+</div>
+
+<div class="row no-gutters" *ngFor="let row of rows">
+    <div *ngFor="let photo of row" class="col-4 col-md-4 mb-5">
+        <div olDarkenOnHover>
+            <a [routerLink]="['/photo',photo.id]">
+                <ol-card routerLinkActive="router-link-active" [title]="photo.description">
+                    <ol-photo [url]="photo.url" [alt]="photo.description">
+                    </ol-photo>
+                    <div class="text-center">
+                        <i aria-hidden="true" class="fa fa-heart-o mr-2"></i> {{photo.likes}}
+                        <i aria-hidden="true" class="fa fa-comments mr-2 ml-2"></i> {{photo.comments}}
+                    </div>
+                </ol-card>
+            </a>
+        </div>
+    </div>
+</div>

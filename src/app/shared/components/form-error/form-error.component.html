@@ -1,0 +1,24 @@
+<div *ngIf="input.touched">
+    <div *ngIf="input.errors; else success">
+        <ol-vmessage *ngIf="input.errors.required" message="{{inputName}} is required">
+        </ol-vmessage>
+    
+        <ol-vmessage *ngIf="input.errors.minlength" message="{{inputName}} minimum length is {{input.errors.minlength.requiredLength}}">    
+        </ol-vmessage>
+        
+        <ol-vmessage *ngIf="input.errors.maxlength" message="{{inputName}} maximum length is {{input.errors.maxlength.requiredLength}}">    
+        </ol-vmessage>
+        
+        <ol-vmessage *ngIf="input.errors.email" message="{{inputName}} is not a valid email">    
+        </ol-vmessage>
+        
+        <ol-vmessage *ngIf="input.errors.lowerCase" message="{{inputName}} must be lower case">    
+        </ol-vmessage>
+    </div>
+</div>
+
+
+<ng-template #success>
+    <ol-vmessage message="{{inputName}} is valid" type="success">    
+    </ol-vmessage>
+</ng-template>

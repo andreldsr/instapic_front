@@ -1,0 +1,28 @@
+<header class="fixed-top">
+  <nav class="navbar navbar-light bg-white">
+    <a class="navbar-brand">
+      <i (click)="menu.toggle()" class="fa fa-bars mr-2"></i>
+      INSTAPIC
+    </a>
+    <ol-menu #menu>
+      <ul>
+        <li olOnlyLogged>Menu Item 1</li>
+        <li>Menu Item 2</li>
+      </ul>
+    </ol-menu>
+    <div>
+      <div *ngIf="(user$ | async) as user; else loginMessage">
+        <i class="fa fa-user-circle mr-1"></i>
+        <a class="pr-1">{{user.name | uppercase}}</a>
+        <a class="pr-2" (click)="logout()">(logout)</a>
+      </div>
+      <ng-template #loginMessage>
+        <a [routerLink]="['']" style="text-decoration: none; color: #000;" class="pr-2">Please, login</a>
+      </ng-template>
+    </div>
+    <div class="text-center fixed-top m-5">
+      <ol-alert></ol-alert>
+      <ol-loading></ol-loading>
+    </div>
+  </nav>
+</header>
