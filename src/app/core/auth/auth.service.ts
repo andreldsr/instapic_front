@@ -19,6 +19,8 @@ export class AuthService {
     }, { observe: 'response' })
       .pipe(tap(
         res => {
+          console.log('response');
+          console.log(res);
           const authToken = res.headers.get('X-Access-Token');
           console.log(authToken);
           this.userService.setToken(authToken);
