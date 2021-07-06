@@ -8,7 +8,7 @@ import { User } from './user';
 import { UserForm } from 'src/app/home/signup/user.form';
 import { environment } from './../../../environments/environment';
 
-const API_URL = environment.apiUrl;
+const API_URL = environment.API_URL;
 
 @Injectable({
   providedIn: 'root'
